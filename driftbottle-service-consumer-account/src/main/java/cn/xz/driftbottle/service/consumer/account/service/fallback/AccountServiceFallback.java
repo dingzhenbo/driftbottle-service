@@ -12,4 +12,9 @@ public class AccountServiceFallback implements AccountService {
     public String reg(String accountBases) {
         return Fallback.CommonsFallback();
     }
+
+    @Override
+    public String searchAccount(String id) {
+        return Fallback.CommonsFallback();
+    }
 }

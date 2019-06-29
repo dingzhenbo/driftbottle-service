@@ -9,7 +9,21 @@
     <result column="em_id" jdbcType="VARCHAR" property="emId" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
     <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="signature" jdbcType="VARCHAR" property="signature" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="head_portrait" jdbcType="INTEGER" property="headPortrait" />
+    <result column="card_picture" jdbcType="INTEGER" property="cardPicture" />
+    <result column="get_bottle_count" jdbcType="INTEGER" property="getBottleCount" />
+    <result column="put_bottle_count" jdbcType="INTEGER" property="putBottleCount" />
+    <result column="attention_count" jdbcType="INTEGER" property="attentionCount" />
+    <result column="fans_count" jdbcType="INTEGER" property="fansCount" />
+    <result column="creat_date" jdbcType="DATE" property="creatDate" />
+    <result column="update_date" jdbcType="DATE" property="updateDate" />
+    <result column="warning_count" jdbcType="INTEGER" property="warningCount" />
+    <result column="lately_login_date" jdbcType="DATE" property="latelyLoginDate" />
   </resultMap>
 </mapper>

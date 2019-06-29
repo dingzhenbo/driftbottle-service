@@ -4,7 +4,6 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-
 @Data
 /**
  * 数据传输对象

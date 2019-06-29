@@ -5,19 +5,20 @@ import cn.xz.driftbottle.commons.dto.BaseResult;
 import cn.xz.driftbottle.commons.utils.MapperUtils;
 import cn.xz.driftbottle.service.consumer.account.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
 @RequestMapping(value = "account")
 @RestController
 public class AccountController {
     @Autowired
     AccountService accountService;
 
-    @GetMapping(value = "")
-    public String sayHi(){
-        return "D.";
+    @GetMapping(value = "test/{str}")
+    public BaseResult sayHi(@PathVariable String str){
+        AccountBases accountBases = new AccountBases();
+        accountBases.setNickname("丁振波");
+        return BaseResult.ok(accountBases);
     }
 
     @PostMapping(value = "reg")
@@ -32,6 +33,18 @@ public class AccountController {
         try {
             BaseResult baseResult = MapperUtils.json2pojo(fallbackJson, BaseResult.class);
             return baseResult;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  null;
+    }
+
+    @GetMapping("search/{id}")
+    public BaseResult search(@PathVariable String id){
+        String json = accountService.searchAccount(id); //调用服务提供者
+        try {
+            BaseResult baseResult = MapperUtils.json2pojo(json, BaseResult.class);
+            return  baseResult;
         } catch (Exception e) {
             e.printStackTrace();
         }
