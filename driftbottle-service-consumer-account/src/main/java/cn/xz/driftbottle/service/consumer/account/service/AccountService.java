@@ -17,4 +17,19 @@ public interface AccountService {
 
     @GetMapping(value = "account/search/{id}")
     String searchAccount(@PathVariable String id);
+
+    @PostMapping(value = "account/attention/{current}/{attention}")
+    void  attention(@PathVariable String current,@PathVariable String attention);
+
+    @GetMapping(value = "account/attention/state/{current}/{other_account}")
+    String attentionState(@PathVariable String current,@PathVariable String other_account);
+
+    @GetMapping(value = "account/get/id/{emid}")
+    String getCurrentId(@PathVariable String emid);
+
+    @GetMapping(value = "account/attention/list/{account_id}")
+    String attentionList(@PathVariable Integer account_id);
+
+    @PostMapping(value = "account/attention/cancel/{current}/{attention}")
+    void cancelAttention(@PathVariable String current,@PathVariable String attention);
 }

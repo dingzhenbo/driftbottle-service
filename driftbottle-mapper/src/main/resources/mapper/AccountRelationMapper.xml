@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xz.driftbottle.commons.mapper.AccountRelationMapper">
+  <resultMap id="BaseResultMap" type="cn.xz.driftbottle.commons.domain.AccountRelation">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="account" jdbcType="INTEGER" property="account" />
+    <result column="attention_account" jdbcType="INTEGER" property="attentionAccount" />
+  </resultMap>
+</mapper>

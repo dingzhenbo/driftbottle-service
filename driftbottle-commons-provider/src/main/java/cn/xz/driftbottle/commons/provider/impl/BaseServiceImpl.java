@@ -9,7 +9,7 @@ import tk.mybatis.mapper.MyMapper;
 public class BaseServiceImpl<T,M extends MyMapper<T>> implements BaseService<T>{
 
     @Autowired
-    private M mapper;
+    public M mapper;
 
     @Override
     public int insert(T t) {

@@ -3,7 +3,7 @@ package cn.xz.driftbottle.commons.domain;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "account_bases")
+@Table(name = "driftbottle-account..account_bases")
 public class AccountBases {
     /**
      * 用户id 自增
@@ -62,13 +62,13 @@ public class AccountBases {
      * 头像
      */
     @Column(name = "head_portrait")
-    private Integer headPortrait;
+    private String headPortrait;
 
     /**
      * 个人信息卡片背景图
      */
     @Column(name = "card_picture")
-    private Integer cardPicture;
+    private String cardPicture;
 
     /**
      * 捡瓶子数量
@@ -303,7 +303,7 @@ public class AccountBases {
      *
      * @return head_portrait - 头像
      */
-    public Integer getHeadPortrait() {
+    public String getHeadPortrait() {
         return headPortrait;
     }
 
@@ -312,7 +312,7 @@ public class AccountBases {
      *
      * @param headPortrait 头像
      */
-    public void setHeadPortrait(Integer headPortrait) {
+    public void setHeadPortrait(String headPortrait) {
         this.headPortrait = headPortrait;
     }
 
@@ -321,7 +321,7 @@ public class AccountBases {
      *
      * @return card_picture - 个人信息卡片背景图
      */
-    public Integer getCardPicture() {
+    public String getCardPicture() {
         return cardPicture;
     }
 
@@ -330,7 +330,7 @@ public class AccountBases {
      *
      * @param cardPicture 个人信息卡片背景图
      */
-    public void setCardPicture(Integer cardPicture) {
+    public void setCardPicture(String cardPicture) {
         this.cardPicture = cardPicture;
     }
 

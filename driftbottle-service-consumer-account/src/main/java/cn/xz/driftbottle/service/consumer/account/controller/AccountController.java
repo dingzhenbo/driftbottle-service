@@ -21,6 +21,11 @@ public class AccountController {
         return BaseResult.ok(accountBases);
     }
 
+    /**
+     * 注册
+     * @param accountBases
+     * @return
+     */
     @PostMapping(value = "reg")
     public BaseResult reg(AccountBases accountBases){
         String json = null;
@@ -39,6 +44,11 @@ public class AccountController {
         return  null;
     }
 
+    /**
+     * 搜索用户
+     * @param id 用户环信id
+     * @return
+     */
     @GetMapping("search/{id}")
     public BaseResult search(@PathVariable String id){
         String json = accountService.searchAccount(id); //调用服务提供者
@@ -49,5 +59,66 @@ public class AccountController {
             e.printStackTrace();
         }
         return  null;
+    }
+
+    /**
+     * 关注
+     * @param current 当前登录用户id
+     * @param attention 关注用户id
+     */
+    @PostMapping(value = "attention/{current}/{attention}")
+    public void  attention(@PathVariable String current,@PathVariable String attention){
+        accountService.attention(current,attention); //调用服务提供者
+    }
+
+    @PostMapping(value = "attention/cancel/{current}/{attention}")
+    public void cancelAttention(@PathVariable String current,@PathVariable String attention){
+        accountService.cancelAttention(current,attention);
+    }
+
+    /**
+     * 关注状态
+     * @param current 当前用户id
+     * @param other_account 其他用户
+     * @return
+     */
+    @GetMapping(value = "attention/state/{current}/{other_account}")
+    public Boolean attentionState(@PathVariable String current,@PathVariable String other_account){
+        String state = accountService.attentionState(current, other_account);
+        if (state!=null){
+           return Boolean.valueOf(state);
+        }
+        return null;
+    }
+
+    /**
+     * 获取用户id
+     * @param emid
+     * @return
+     */
+    @GetMapping(value = "get/id/{emid}")
+    public Integer getCurrentId(@PathVariable String emid){
+        String currentId = accountService.getCurrentId(emid);
+        if (currentId!=null){
+            return Integer.valueOf(currentId);
+        }
+        return null;
+    }
+
+    /**
+     * 关注列表
+     * @param account_id 用户id
+     * @return
+     */
+    @GetMapping(value = "attention/list/{account_id}")
+    public BaseResult attentionList(@PathVariable Integer account_id){
+        String baseResultJson = accountService.attentionList(account_id);
+        try {
+            BaseResult baseResult = MapperUtils.json2pojo(baseResultJson, BaseResult.class);
+            return baseResult;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
